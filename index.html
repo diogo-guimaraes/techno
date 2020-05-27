@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./vue.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./vue.min.js"></script>
   <link rel="stylesheet" href="./style.css">
   <title>Projeto VueJs techno Origamid</title>
   <!-- refactor(html): index.html
@@ -12,16 +13,18 @@ rm(html): index.html -->
 </head>
 <body>
   <div id="app">
+    
     <section class="produtos">
-      <div v-for="produto in produtos" :key="produto.id" class="produtos">
+      <div v-for="produto in produtos" :key="produto.id" class="produto">
         <img :src="produto.img" :alt="produto.nome" class="produto_img" />
         <div class="produto_info">
-        <span class="preco_info">{{produto.preco}} </span>
-        <h1 class="produto_titulo">{{produto.nome}} </h1>
+          <span class="produto_preco">{{produto.preco}}</span>
+          <h2 class="produto_titulo">{{produto.nome}}</h2>
         </div>
       </div>
     </section>
   </div>
+
   <script src="./app.js"></script>
 </body>
 </html>
