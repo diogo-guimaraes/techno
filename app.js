@@ -1,6 +1,3 @@
-// refactor(doc): app.js
-// add(doc): app.js
-// rm(doc): app.js
 const vm = new Vue({
   el: "#app",
   data: {
