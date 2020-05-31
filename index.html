@@ -12,10 +12,38 @@ add(html): index.html
 rm(html): index.html -->
 </head>
 <body>
+
   <div id="app">
-    <section class="modal">
-      {{produto}}
+
+    <section class="modal" v-if="produto">
+
+      <div class="modal_container">
+
+        <div class="modal_img">           
+          <img :src="produto.img" :alt="produto.nome"></img>            
+        </div>
+
+        <div class="modal_dados">
+          <span class="modal_preco">{{produto.preco}}</span>
+          <h2 class="titulo_modal">{{produto.nome}}</h2>
+          <p>{{produto.descricao}}</p>
+          <button class="modal_btn">Adicionar item</button>
+        </div>
+
+        <div class="avaliacoes">
+          <h2 class="avaliacoes_subtitulo">Avaliações</h2>
+          <ul>
+          <li v-for="avaliacao in produto.avaliacoes">
+          <p class="avaliacao_descricao">{{avaliacao.descricao}}</p>
+          <p class="avaliacao_descricao">{{avaliacao.nome}} | {{avaliacao.estrelas}} Estrelas</p>
+          </li>
+          </ul>
+        </div>
+
+      </div> 
+
     </section>
+
     <!-- filtragem -->
     <section class="produtos">
       <div v-for="item in produtos" @click="fetchProduto(item.id)" :key="produto.id" class="produto">
