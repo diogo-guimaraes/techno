@@ -15,7 +15,7 @@ rm(html): index.html -->
 
   <div id="app">
 
-    <section class="modal" v-if="produto">
+    <section class="modal" v-if="produto" @click="fecharModal">
 
       <div class="modal_container">
 
@@ -24,6 +24,7 @@ rm(html): index.html -->
         </div>
 
         <div class="modal_dados">
+        <button @click="produto = false" class="modal_fechar">x</button
           <span class="modal_preco">{{produto.preco}}</span>
           <h2 class="titulo_modal">{{produto.nome}}</h2>
           <p>{{produto.descricao}}</p>
@@ -46,7 +47,7 @@ rm(html): index.html -->
 
     <!-- filtragem -->
     <section class="produtos">
-      <div v-for="item in produtos" @click="fetchProduto(item.id)" :key="produto.id" class="produto">
+      <div v-for="item in produtos" @click="abrirModal(item.id)" :key="produto.id" class="produto">
         <img :src="item.img" :alt="item.nome" class="produto_img" />
         <div class="produto_info">
           <span class="produto_preco">{{item.preco | numeroPreco}}</span>
