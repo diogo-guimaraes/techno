@@ -2,7 +2,9 @@ const vm = new Vue({
   el: "#app",
   data: {
     produtos: [],
-    produto: false
+    produto: false,
+    carrinho: [],
+    carrinhoTotal: 0
   },
   filters: {
     numeroPreco(valor) {
@@ -36,8 +38,12 @@ const vm = new Vue({
 
       if (target === currentTarget)
         this.produto = false;
+    },
+    adicionarItem(event) {
+      this.produto.estoque--;
+      const { id, nome, preco } = this.produto;
+      this.carrinho.push({ id, nome, preco });
     }
-
   },
   created() {
     this.fetchProdutos();
