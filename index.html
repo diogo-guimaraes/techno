@@ -16,15 +16,15 @@ rm(html): index.html -->
 <body>
 
   <div id="app">
-  
+
     <header class="header">
       <img class="logo" src="./assets/techno.svg" alt="techno"></img>
       <div class="carrinho_menu">{{carrinhoTotal | numeroPreco}} | {{carrinho.length}}</div>
       <ul>
-      <li v-for="(item, index) in carrinho">
-      <p>{{item.nome}}</p>
-      <button @click="removerItem(index)">X</button>
-      </li>
+        <li v-for="(item, index) in carrinho">
+          <p>{{item.nome}}</p>
+          <button @click="removerItem(index)">X</button>
+        </li>
       </ul>
     </header>
     <!-- filtragem -->
@@ -53,8 +53,8 @@ rm(html): index.html -->
             class="modal_preco">{{produto.preco}}</span>
           <h2 class="titulo_modal">{{produto.nome}}</h2>
           <p>{{produto.descricao}}</p>
-          <p>{{produto.estoque}}</p>
-          <button v-if="produto.estoque >0" class="modal_btn" @click="adicionarItem">Adicionar item</button>
+          <p>{{produto.estoque}}</p>          
+          <button v-if="produto.estoque > 0" class="modal_btn" @click="adicionarItem">Adicionar Item</button>
           <button v-else class="modal_btn esgotado" disabled>Produto Esgotado</button>
         </div>
 
@@ -70,7 +70,13 @@ rm(html): index.html -->
         </div>
 
       </div>
+      
     </section>
+    
+    <div class="alerta" :class="{ativo: alertaAtivo}">
+      <p class="alerta_mensagem">{{mensagemAlerta}}</p>
+    </div>
+    
   </div>
 
   <script src="./app.js"></script>
